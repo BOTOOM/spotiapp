@@ -20,10 +20,7 @@ export class SpotifyService {
       'Authorization': `Bearer ${this.token}`
     });
 
-    this.http.get(`https://api.spotify.com/v1/browse/new-releases?limit=20`, { headers })
-    .subscribe( data => {
-      console.info(data);
-    });
+    return this.http.get(`https://api.spotify.com/v1/browse/new-releases?limit=20`, { headers });
 
   }
 }
