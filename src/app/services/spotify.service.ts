@@ -1,0 +1,27 @@
+import { Injectable } from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SpotifyService {
+
+  constructor(
+    private http: HttpClient,
+  ) {
+    console.info('Spotify Service Listo');
+  }
+
+  getNewReleases(){
+
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer BQBF6OAA-SS_tChuCgLAUC6pcZmPy8EOa4mWVTFZBWPfnHbdA5gDxcfm9YsJLeFM2tgiCKpVooZ8CU_ct5c'
+    });
+
+    this.http.get(`https://api.spotify.com/v1/browse/new-releases?limit=20`, { headers })
+    .subscribe( data => {
+      console.info(data);
+    });
+
+  }
+}
