@@ -6,7 +6,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 export class SpotifyService {
 
-  token = 'BQBF6OAA-SS_tChuCgLAUC6pcZmPy8EOa4mWVTFZBWPfnHbdA5gDxcfm9YsJLeFM2tgiCKpVooZ8CU_ct5c';
+  token = 'BQAtvoeX4nyDNnnYdoxukV3fTR6oKi-veyQ_8EILXah1y8YRVFfIjxmT1f1865EwuA8TzLXQ2wdiMJfVDV0';
 
   constructor(
     private http: HttpClient,
@@ -20,7 +20,15 @@ export class SpotifyService {
       'Authorization': `Bearer ${this.token}`
     });
 
-    return this.http.get(`https://api.spotify.com/v1/browse/new-releases?limit=20`, { headers });
+    return this.http.get(`https://api.spotify.com/v1/browse/new-releases?offset=5&limit=20`, { headers });
 
+  }
+
+  getArtista( termino:string ) {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.token}`
+    });
+
+    return this.http.get(`https://api.spotify.com/v1/search?q=${ termino }&type=artist&limit=15`, { headers });
   }
 }
