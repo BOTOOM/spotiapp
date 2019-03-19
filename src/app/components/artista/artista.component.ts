@@ -29,6 +29,7 @@ export class ArtistaComponent{
     .subscribe ( artista => {
       this.Artista = artista;
       console.info(this.Artista);
+      this.loading = true ;
     })
   }
 
