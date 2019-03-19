@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class SpotifyService {
 
-  token = 'BQCXidKukTchxA7-gDgj73FICUpD9LhWv6jCxOy1bYlamp8HKscVTC8mG2v7pJGjTzLgBNwfDkwNtp_yKjc';
+  token = 'BQA-RxSwR9-lbYQXZFFqPWFTnLKlKTPtBrOpfVanlKXllvzvJMUftgnJENcxqo4CE8E4aFFKXsDUxtsgvis';
 
   constructor(
     private http: HttpClient,
@@ -48,10 +48,18 @@ export class SpotifyService {
 
   getArtista( id:string ) {
 
-    return this.getQuery(`artists/${ id }`)
+    return this.getQuery(`artists/${ id }`);
     // .pipe( map( data => {
     //   return data['artists']['items'];
     // } ) )
-     ;
+     // ;
+  }
+
+  getTopTracks( id:string ) {
+
+    return this.getQuery(`artists/${ id }/top-tracks?country=us`)
+    .pipe( map( data => {
+      return data['tracks'];
+    } ) );
   }
 }
