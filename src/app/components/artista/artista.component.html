@@ -32,10 +32,16 @@
           </thead>
           <tbody>
             <tr *ngFor="let TopTrack of TopTracks">
-              <td></td>
+              <td>
+                <img src="{{ TopTrack.album.images | noimage }}" class="img-thumb">
+              </td>
               <td>{{ TopTrack.album.name }}</td>
               <td>{{ TopTrack.name }}</td>
-              <td></td>
+              <td>
+                <audio [src]="TopTrack.preview_url" controls>
+
+                </audio>
+              </td>
             </tr>
           </tbody>
       </table>
