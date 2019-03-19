@@ -13,6 +13,10 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import {APP_ROUTING} from './app.routes';
 // pipes
 import { NoimagePipe } from './pipes/noimage.pipe';
+import { DomseguroPipe } from './pipes/domseguro.pipe';
+// import { DomseguroPipe } from './pipes/domseguro.pipe';
+
+
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 
@@ -26,6 +30,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     NoimagePipe,
     TarjetasComponent,
     LoadingComponent,
+    DomseguroPipe,
   ],
   imports: [
     BrowserModule,
